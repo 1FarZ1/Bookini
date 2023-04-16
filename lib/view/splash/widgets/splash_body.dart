@@ -1,5 +1,8 @@
 import 'package:bookini/core/consts.dart';
+import 'package:bookini/view/home/home.dart';
 import 'package:flutter/material.dart';
+
+import 'sliding_text.dart';
 
 class SplashBody extends StatefulWidget {
   const SplashBody({super.key});
@@ -16,19 +19,19 @@ class _SplashBodyState extends State<SplashBody>
   @override
   void initState() {
     super.initState();
-    _animationController = AnimationController(
-      vsync: this,
-      duration: const Duration(seconds: 2),
-    );
-
-    _animation = Tween<Offset>(
-      begin: const Offset(0, 3),
-      end: Offset.zero,
-    ).animate(_animationController);
-    _animationController.forward();
-    _animation.addListener(() {
-      setState(() {});
+    initAnim();
+    Future.delayed(
+        Duration(seconds: AppConsts.kTranstionDuration.inSeconds + 4), () {
+      Navigator.push(context, MaterialPageRoute(builder: (ctx) {
+        return const Home();
+      }));
     });
+  }
+
+  @override
+  void dispose() {
+    _animationController.dispose();
+    super.dispose();
   }
 
   @override
@@ -38,17 +41,24 @@ class _SplashBodyState extends State<SplashBody>
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         Image.asset(AssetsData.logo),
-        AnimatedBuilder(
-          builder: (ctx, _) {
-            return SlideTransition(
-              position: _animation,
-              child: const Text("World Of Books",
-                  textAlign: TextAlign.center, style: Styles.textStyle14),
-            );
-          },
-          animation: _animation,
-        ),
+        SlidingText(animation: _animation),
       ],
     );
+  }
+
+  void initAnim() {
+    _animationController = AnimationController(
+      vsync: this,
+      duration: AppConsts.kTranstionDuration,
+    );
+
+    _animation = Tween<Offset>(
+      begin: const Offset(0, 5),
+      end: Offset.zero,
+    ).animate(_animationController);
+    _animationController.forward();
+    _animation.addListener(() {
+      setState(() {});
+    });
   }
 }
