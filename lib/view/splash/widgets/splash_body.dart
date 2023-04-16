@@ -6,8 +6,14 @@ class SplashBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Image.asset(AssetsData.logo),
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        Image.asset(AssetsData.logo),
+        const Text("World Of Books",
+            textAlign: TextAlign.center, style: Styles.textStyle14),
+      ],
     );
   }
 }
