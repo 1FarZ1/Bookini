@@ -1,4 +1,3 @@
-import 'dart:ui';
 import 'package:flutter/cupertino.dart';
 
 
@@ -40,5 +39,3 @@ abstract class Styles {
     fontWeight: FontWeight.w500,
   );
 }
-
-const TextStyle textStyle = TextStyle();

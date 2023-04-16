@@ -23,6 +23,7 @@ dependencies:
   flutter_bloc: ^8.1.2
   url_launcher: ^6.1.10
   get: ^4.6.5
+  google_fonts: ^4.0.3
 
 dev_dependencies:
   flutter_test:

@@ -1,8 +1,5 @@
 import 'package:bookini/core/consts.dart';
 import 'package:flutter/material.dart';
-
-import '../home.dart';
-
 class HomeBody extends StatelessWidget {
   const HomeBody({super.key});
 
@@ -35,17 +32,30 @@ class CustomListView extends StatelessWidget {
         itemCount: 5,
         scrollDirection: Axis.horizontal,
         itemBuilder: (BuildContext context, int index) {
-          return AspectRatio(
-            aspectRatio: 2.7 / 4,
-            child: Container(
-                // width: MediaQuery.of(context).size.width * .55,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(14),
-                    image: const DecorationImage(
-                        image: AssetImage(AssetsData.testImage),
-                        fit: BoxFit.fill))),
-          );
+          return const BookCard();
         },
+      ),
+    );
+  }
+}
+
+class BookCard extends StatelessWidget {
+  const BookCard({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return AspectRatio(
+      aspectRatio: 2.7 / 4,
+      child: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(14),
+          image: const DecorationImage(
+            image: AssetImage(AssetsData.testImage),
+            fit: BoxFit.fill,
+          ),
+        ),
       ),
     );
   }
