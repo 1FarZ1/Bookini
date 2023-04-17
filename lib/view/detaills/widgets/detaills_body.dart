@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 class DetaillsBody extends StatelessWidget {
@@ -8,7 +7,7 @@ class DetaillsBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-         Text('Detaills Body'),
+        Image.asset("assets/images/test_image.png"),
       ],
     );
   }

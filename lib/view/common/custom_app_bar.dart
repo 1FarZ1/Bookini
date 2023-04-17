@@ -3,7 +3,10 @@ import 'package:flutter/material.dart';
 import '../../core/consts.dart';
 
 class CustomAppBar extends StatelessWidget with PreferredSizeWidget {
-  const CustomAppBar({super.key});
+  const CustomAppBar({super.key, required this.leading, required this.action});
+
+  final Widget leading;
+  final Widget action;
 
   @override
   Widget build(BuildContext context) {
@@ -11,22 +14,9 @@ class CustomAppBar extends StatelessWidget with PreferredSizeWidget {
       padding: const EdgeInsets.only(top: 40, bottom: 20, right: 30, left: 30),
       child: Row(
         children: [
-          Image.asset(
-            AssetsData.logo,
-            height: 18,
-          ),
+         leading,
           const Spacer(),
-          IconButton(
-              onPressed: () {
-                // GoRouter.of(context).push(AppRouter.kSearchView);
-              },
-              icon: IconButton(
-                icon: const Icon(
-                  Icons.search,
-                  size: 22,
-                ),
-                onPressed: () {},
-              ))
+          action
         ],
       ),
     );

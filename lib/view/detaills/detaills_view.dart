@@ -8,9 +8,26 @@ class DetaillsView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const  Scaffold(
-      appBar: CustomAppBar(),
-      body: DetaillsBody(),
+    return SafeArea(
+      child: Scaffold(
+        appBar: CustomAppBar(
+          leading: IconButton(
+            icon: const Icon(
+              Icons.close,
+              size: 30,
+            ),
+            onPressed: () {},
+          ),
+          action: IconButton(
+            icon: const Icon(
+              Icons.shopping_cart,
+              size: 30,
+            ),
+            onPressed: () {},
+          ),
+        ),
+        body: const DetaillsBody(),
+      ),
     );
   }
 }
