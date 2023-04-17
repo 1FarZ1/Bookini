@@ -1,7 +1,7 @@
 
 import 'package:flutter/material.dart';
 
-import 'book_card.dart';
+import '../../common/book_card.dart';
 
 class CustomListView extends StatelessWidget {
   const CustomListView({super.key});

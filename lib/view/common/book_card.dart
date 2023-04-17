@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../core/consts.dart';
+import '../../core/consts.dart';
 
 class BookCard extends StatelessWidget {
   const BookCard({
