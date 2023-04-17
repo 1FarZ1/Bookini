@@ -8,7 +8,7 @@ class DetaillsBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        const Text('Detaills Body'),
+         Text('Detaills Body'),
       ],
     );
   }
