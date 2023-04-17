@@ -1,6 +1,7 @@
 import 'package:bookini/core/consts.dart';
 import 'package:bookini/view/home/home.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import 'sliding_text.dart';
 
@@ -22,9 +23,7 @@ class _SplashBodyState extends State<SplashBody>
     initAnim();
     Future.delayed(
         Duration(seconds: AppConsts.kTranstionDuration.inSeconds + 4), () {
-      Navigator.push(context, MaterialPageRoute(builder: (ctx) {
-        return const Home();
-      }));
+      GoRouter.of(context).push('/home');
     });
   }
 
