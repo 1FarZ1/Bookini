@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import 'action_button.dart';
 import 'custom_book_card.dart';
+import 'custom_title.dart';
 
 class DetaillsBody extends StatelessWidget {
   const DetaillsBody({super.key});
@@ -17,14 +18,18 @@ class DetaillsBody extends StatelessWidget {
         ),
         const CustomBookCard(),
         const SizedBox(height: 32),
-        Text("The Book of the Dead",
-            style: Styles.textStyle20.copyWith(
-              fontWeight: FontWeight.w700,
-            )),
+        Text(
+          "The Book of the Dead",
+          style: Styles.textStyle20.copyWith(
+            fontWeight: FontWeight.w700,
+          ),
+        ),
         const SizedBox(height: 8),
         // text widget?
         const Opacity(
-            opacity: .7, child: Text("JK Rowling", style: Styles.textStyle14)),
+          opacity: .7,
+          child: Text("JK Rowling", style: Styles.textStyle14),
+        ),
         const SizedBox(height: 16),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -33,10 +38,12 @@ class DetaillsBody extends StatelessWidget {
             const SizedBox(
               width: 1,
             ),
-            Text("4.5",
-                style: Styles.textStyle14.copyWith(
-                  fontWeight: FontWeight.w700,
-                )),
+            Text(
+              "4.5",
+              style: Styles.textStyle14.copyWith(
+                fontWeight: FontWeight.w700,
+              ),
+            ),
             const SizedBox(
               width: 4,
             ),
@@ -46,13 +53,7 @@ class DetaillsBody extends StatelessWidget {
         const SizedBox(height: 32),
         const ActionButton(),
         const SizedBox(height: 32),
-        const Align(
-          alignment: Alignment.centerLeft,
-          child: Text(
-            "    See Also",
-            style: Styles.textStyle18,
-          ),
-        ),
+        const CustomTitle(),
       ],
     );
   }
