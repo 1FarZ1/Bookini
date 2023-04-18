@@ -3,7 +3,7 @@ import 'package:bookini/repository/home_repo_impl.dart';
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 
-void setup() {
+void setupDi() {
   var _getIt = GetIt.instance;
 
   _getIt.registerSingleton<Dio>(Dio());

@@ -7,9 +7,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'core/depandancy_injection.dart';
 import 'core/routes_config.dart';
 
 void main() {
+  setupDi();
   runApp(DevicePreview(
     tools: const [...DevicePreview.defaultTools],
     enabled: true,
@@ -25,11 +27,13 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider<FeaturedBooksCubit>(
-            create: (BuildContext context) =>
-                FeaturedBooksCubit(GetIt.instance.get<HomeRepoImpl>())),
+            create: (BuildContext context) => FeaturedBooksCubit(
+                  GetIt.instance.get<HomeRepoImpl>(),
+                )..fetchData()),
         BlocProvider<NewestBookCubit>(
-            create: (BuildContext context) =>
-                NewestBookCubit(GetIt.instance.get<HomeRepoImpl>()))
+            create: (BuildContext context) => NewestBookCubit(
+                  GetIt.instance.get<HomeRepoImpl>(),
+                )..fetchBooks())
       ],
       child: MaterialApp.router(
         routerConfig: AppRouter.router,
