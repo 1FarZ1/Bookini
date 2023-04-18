@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:equatable/equatable.dart';
 
@@ -12,11 +14,11 @@ class FeaturedBooksCubit extends Cubit<FeaturedBooksState> {
 
   Future<void> fetchData() async {
     emit(FeaturedBooksLoading());
-    _homeRepoImpl.fetchFeaturedBooks().then((eitherObject) {
-      eitherObject.fold(
-          (failure) =>
-              emit(FeaturedBooksFailure(errorMessage: failure.errorMessage)),
-          (books) => emit(FeaturedBooksSucess(books: books)));
-    });
+    log("Loading");
+    var result = await _homeRepoImpl.fetchFeaturedBooks();
+    result.fold(
+        (failure) =>
+            emit(FeaturedBooksFailure(errorMessage: failure.errorMessage)),
+        (books) => emit(FeaturedBooksSucess(books: books)));
   }
 }

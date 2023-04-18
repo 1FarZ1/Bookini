@@ -13,7 +13,7 @@ class CustomBookCard extends StatelessWidget {
       color: Colors.red,
       width: MediaQuery.of(context).size.width * .3,
       height: MediaQuery.of(context).size.height * .2,
-      child: const BookCard(),
+      child: const BookCard(imgUrl: "",),
     );
   }
 }

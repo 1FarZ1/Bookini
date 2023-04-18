@@ -12,7 +12,7 @@ class Book extends Equatable {
   final String? id;
   final String? etag;
   final String? selfLink;
-  final VolumeInfo? volumeInfo;
+  final VolumeInfo volumeInfo;
   final SaleInfo? saleInfo;
   final AccessInfo? accessInfo;
   final SearchInfo? searchInfo;
@@ -22,7 +22,7 @@ class Book extends Equatable {
     this.id,
     this.etag,
     this.selfLink,
-    this.volumeInfo,
+    required this.volumeInfo,
     this.saleInfo,
     this.accessInfo,
     this.searchInfo,
@@ -33,9 +33,8 @@ class Book extends Equatable {
         id: data['id'] as String?,
         etag: data['etag'] as String?,
         selfLink: data['selfLink'] as String?,
-        volumeInfo: data['volumeInfo'] == null
-            ? null
-            : VolumeInfo.fromMap(data['volumeInfo'] as Map<String, dynamic>),
+        volumeInfo:
+            VolumeInfo.fromMap(data['volumeInfo'] as Map<String, dynamic>),
         saleInfo: data['saleInfo'] == null
             ? null
             : SaleInfo.fromMap(data['saleInfo'] as Map<String, dynamic>),
@@ -52,7 +51,7 @@ class Book extends Equatable {
         'id': id,
         'etag': etag,
         'selfLink': selfLink,
-        'volumeInfo': volumeInfo?.toMap(),
+        'volumeInfo': volumeInfo.toMap(),
         'saleInfo': saleInfo?.toMap(),
         'accessInfo': accessInfo?.toMap(),
         'searchInfo': searchInfo?.toMap(),

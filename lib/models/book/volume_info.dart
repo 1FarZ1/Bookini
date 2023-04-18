@@ -52,7 +52,7 @@ class VolumeInfo extends Equatable {
 
   factory VolumeInfo.fromMap(Map<String, dynamic> data) => VolumeInfo(
         title: data['title'] as String?,
-        authors: data['authors'] as List<String>?,
+        authors: (data['authors'] as List<dynamic>?)?.cast<String>(),
         publisher: data['publisher'] as String?,
         publishedDate: data['publishedDate'] as String?,
         description: data['description'] as String?,
@@ -65,7 +65,7 @@ class VolumeInfo extends Equatable {
                 data['readingModes'] as Map<String, dynamic>),
         pageCount: data['pageCount'] as int?,
         printType: data['printType'] as String?,
-        categories: data['categories'] as List<String>?,
+        categories: (data['categories'] as List<dynamic>?)?.cast<String>(),
         maturityRating: data['maturityRating'] as String?,
         allowAnonLogging: data['allowAnonLogging'] as bool?,
         contentVersion: data['contentVersion'] as String?,

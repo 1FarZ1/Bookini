@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:bookini/view_model/home/featured_books_cubit/featured_books_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -15,14 +17,20 @@ class CustomListView extends StatelessWidget {
           return SizedBox(
             height: MediaQuery.of(context).size.height * .35,
             child: ListView.builder(
-              itemCount: 5,
+              physics: const BouncingScrollPhysics(),
+              itemCount: state.books.length,
               scrollDirection: Axis.horizontal,
               itemBuilder: (BuildContext context, int index) {
-                return const BookCard();
+                return BookCard(
+                    imgUrl:
+                        (state.books[index].volumeInfo.imageLinks?.thumbnail ??
+                            ""));
               },
             ),
           );
         } else if (state is FeaturedBooksFailure) {
+          log("error");
+
           return Text(state.errorMessage.toString());
         } else {
           return const Center(child: CircularProgressIndicator());

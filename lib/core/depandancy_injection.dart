@@ -4,9 +4,9 @@ import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 
 void setupDi() {
-  var _getIt = GetIt.instance;
+  GetIt getIt = GetIt.instance;
 
-  _getIt.registerSingleton<Dio>(Dio());
-  _getIt.registerSingleton<ApiService>(ApiService(_getIt.get<Dio>()));
-  _getIt.registerSingleton<HomeRepoImpl>(HomeRepoImpl(_getIt.get<ApiService>()));
+  getIt.registerSingleton<Dio>(Dio());
+  getIt.registerSingleton<ApiService>(ApiService(getIt.get<Dio>()));
+  getIt.registerSingleton<HomeRepoImpl>(HomeRepoImpl(getIt.get<ApiService>()));
 }
