@@ -8,7 +8,7 @@ import 'core/routes_config.dart';
 void main() {
   runApp(DevicePreview(
     enabled: true,
-    builder: (context) => MyApp(),
+    builder: (context) => const MyApp(),
   ));
 }
 
