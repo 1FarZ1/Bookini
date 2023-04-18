@@ -1,5 +1,6 @@
 import 'package:bookini/core/consts.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../common/custom_app_bar.dart';
 import 'action_button.dart';
@@ -28,7 +29,9 @@ class DetaillsBody extends StatelessWidget {
                       Icons.close,
                       size: 30,
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      GoRouter.of(context).pop();
+                    },
                   ),
                   action: IconButton(
                     icon: const Icon(
