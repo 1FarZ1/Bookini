@@ -15,7 +15,7 @@ class HomeRepoImpl implements HomeRepo {
     try {
       Map<String, dynamic> data = await _apiService.get(
           endPoint:
-              'volumes?Filtering=free-ebooks&Sorting=newest &q=computer science');
+              'volumes?Filtering=free-ebooks&Sorting=newest&q=computer science');
       List<Book> books = creatingList(data['items']);
       return Right(books);
     } on Exception catch (e) {
@@ -27,7 +27,18 @@ class HomeRepoImpl implements HomeRepo {
   }
 
   @override
-  Future<Either<Failure, List<Book>>> fetchFeaturedBooks() {
-    throw UnimplementedError();
+  Future<Either<Failure, List<Book>>> fetchFeaturedBooks() async{
+     try {
+      Map<String, dynamic> data = await _apiService.get(
+          endPoint:
+              'volumes?Filtering=free-ebooks&q=computer science');
+      List<Book> books = creatingList(data['items']);
+      return Right(books);
+    } on Exception catch (e) {
+      if (e is DioError) {
+        return Left(ServerFailure.fromDioError(e));
+      }
+      return Left(ServerFailure(e.toString()));
+    }
   }
 }
