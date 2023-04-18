@@ -1,4 +1,3 @@
-import 'package:bookini/view/common/custom_app_bar.dart';
 import 'package:flutter/material.dart';
 
 import 'widgets/detaills_body.dart';

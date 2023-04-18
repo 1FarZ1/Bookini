@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import '../../core/consts.dart';
 import '../common/custom_app_bar.dart';
 import 'widgets/home_body.dart';
@@ -20,7 +21,9 @@ class Home extends StatelessWidget {
                   Icons.search,
                   size: 22,
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  GoRouter.of(context).push("/search");
+                },
               ),
             ),
             body: const HomeBody()));

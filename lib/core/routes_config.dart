@@ -1,6 +1,5 @@
 import 'package:bookini/view/detaills/detaills_view.dart';
 import 'package:bookini/view/search/search_view.dart';
-import 'package:bookini/view/search/widgets/search_body.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -13,7 +12,7 @@ abstract class AppRouter {
       GoRoute(
         path: '/',
         builder: (BuildContext context, GoRouterState state) {
-          return const DetaillsView();
+          return const SplashView();
         },
       ),
       GoRoute(

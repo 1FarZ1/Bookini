@@ -72,11 +72,6 @@ class DetaillsBody extends StatelessWidget {
                 ),
                 const SizedBox(height: 32),
                 // create elevated button in flutter for me
-                ElevatedButton(
-                    onPressed: () {
-                      print(MediaQuery.of(context).size.height);
-                    },
-                    child: Text("display"))
               ],
             ),
           ),

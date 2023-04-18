@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 import '../../common/book_card.dart';

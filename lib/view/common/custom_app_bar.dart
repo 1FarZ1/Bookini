@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 class CustomAppBar extends StatelessWidget with PreferredSizeWidget {
   const CustomAppBar({super.key, required this.leading, required this.action});
 
@@ -10,11 +11,7 @@ class CustomAppBar extends StatelessWidget with PreferredSizeWidget {
     return Padding(
       padding: const EdgeInsets.only(top: 40, bottom: 20, right: 30, left: 30),
       child: Row(
-        children: [
-         leading,
-          const Spacer(),
-          action
-        ],
+        children: [leading, const Spacer(), action],
       ),
     );
   }
