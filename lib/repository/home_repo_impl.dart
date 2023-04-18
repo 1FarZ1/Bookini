@@ -18,12 +18,13 @@ class HomeRepoImpl implements HomeRepo {
               'volumes?Filtering=free-ebooks&Sorting=newest &q=computer science');
       List<Book> books = creatingList(data['items']);
       return Right(books);
-    }on Exception {
-      return Left(ServerFailure());
+    } on Exception catch (e) {
+      if (e is DioError) {
+        return Left(ServerFailure.fromDioError(e));
+      }
+      return Left(ServerFailure(e.toString()));
     }
   }
-
- 
 
   @override
   Future<Either<Failure, List<Book>>> fetchFeaturedBooks() {

@@ -1,11 +1,14 @@
 import 'package:dio/dio.dart';
+import 'package:flutter/foundation.dart';
 
 class ApiService {
   final _baseUrl = 'https://www.googleapis.com/books/v1/';
   final Dio _dio;
 
   ApiService(this._dio){
-    print("object");
+    if (kDebugMode) {
+      print("object");
+    }
   }
 
   Future<Map<String, dynamic>> get({required String endPoint}) async {
