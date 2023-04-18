@@ -7,6 +7,8 @@ import 'core/routes_config.dart';
 
 void main() {
   runApp(DevicePreview(
+    
+    tools: [...DevicePreview.defaultTools],
     enabled: true,
     builder: (context) => const MyApp(),
   ));

@@ -12,6 +12,7 @@ class CustomBookCard extends StatelessWidget {
     return Container(
       color: Colors.red,
       width: MediaQuery.of(context).size.width * .3,
+      height: MediaQuery.of(context).size.height * .2,
       child: const BookCard(),
     );
   }
