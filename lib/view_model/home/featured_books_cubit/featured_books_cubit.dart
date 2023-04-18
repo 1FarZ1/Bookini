@@ -7,8 +7,8 @@ import '../../../repository/home_repo_impl.dart';
 part 'featured_books_state.dart';
 
 class FeaturedBooksCubit extends Cubit<FeaturedBooksState> {
-  FeaturedBooksCubit() : super(FeaturedBooksInitial());
-  final HomeRepoImpl _homeRepoImpl = HomeRepoImpl();
+  FeaturedBooksCubit(this._homeRepoImpl) : super(FeaturedBooksInitial());
+  final HomeRepoImpl _homeRepoImpl;
 
   Future<void> fetchData() async {
     emit(FeaturedBooksLoading());
