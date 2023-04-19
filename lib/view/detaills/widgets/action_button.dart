@@ -28,7 +28,7 @@ class ActionButton extends StatelessWidget {
                         MediaQuery.of(context).size.height * .085),
                     backgroundColor: Colors.white),
                 child: Text(
-                  "19.99\$",
+                  "Free",
                   style: Styles.textStyle18.copyWith(color: Colors.black),
                 )),
           ),
@@ -46,7 +46,7 @@ class ActionButton extends StatelessWidget {
                       MediaQuery.of(context).size.height * .085),
                 ),
                 child: Text(
-                  "Free Preview",
+                  "Preview",
                   style: Styles.textStyle16.copyWith(
                       color: Colors.white, fontWeight: FontWeight.bold),
                 )),

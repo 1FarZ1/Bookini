@@ -7,6 +7,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
 import 'package:go_router/go_router.dart';
 
+import '../models/book/book.dart';
 import '../view/home/home.dart';
 import '../view/splash/splash.dart';
 
@@ -30,7 +31,7 @@ abstract class AppRouter {
         builder: (BuildContext context, GoRouterState state) {
           return BlocProvider<SimilarBooksCubit>(
             create: (context) => SimilarBooksCubit(GetIt.I.get<HomeRepoImpl>()),
-            child: const DetaillsView(),
+            child:  DetaillsView(book:state.extra as Book ),
           );
         },
       ),

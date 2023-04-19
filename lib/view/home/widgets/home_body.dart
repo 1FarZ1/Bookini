@@ -20,11 +20,12 @@ class HomeBody extends StatelessWidget {
           ),
           SizedBox(height: 20),
           CustomListView(),
+          SizedBox(height: 20),
           Text(
             "Best Seller",
             style: Styles.textStyle18,
           ),
-          SizedBox(height: 20),
+          SizedBox(height: 14),
           ListViewBooks()
         ],
       ),

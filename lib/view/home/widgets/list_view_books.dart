@@ -20,8 +20,12 @@ class ListViewBooks extends StatelessWidget {
               itemBuilder: (BuildContext context, int index) {
                 if (state.books[index].volumeInfo.imageLinks?.thumbnail !=
                     null) {
-                  return BestSellerBookCard(
-                    book: state.books[index],
+                  return Padding(
+                    padding:
+                        const EdgeInsets.only(left: 5.0, right: 10, bottom: 10),
+                    child: BestSellerBookCard(
+                      book: state.books[index],
+                    ),
                   );
                 }
                 return const SizedBox.shrink();

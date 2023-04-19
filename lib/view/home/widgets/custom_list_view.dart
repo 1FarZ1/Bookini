@@ -23,9 +23,12 @@ class CustomListView extends StatelessWidget {
               itemBuilder: (BuildContext context, int index) {
                 if (state.books[index].volumeInfo.imageLinks?.thumbnail !=
                     null) {
-                  return BookCard(
-                      imgUrl: (state.books[index].volumeInfo.imageLinks!
-                          .thumbnail as String));
+                  return Padding(
+                    padding:
+                        const EdgeInsets.only(left: 5.0, right: 10, bottom: 10),
+                    child: BookCard(
+                        book: state.books[index],
+                  ));
                 } else {
                   return const SizedBox.shrink();
                 }
