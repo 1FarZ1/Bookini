@@ -1,11 +1,15 @@
+import 'package:bookini/view/common/book_card.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../core/consts.dart';
+import '../../../models/book/book.dart';
 
 class BestSellerBookCard extends StatelessWidget {
-  const BestSellerBookCard({super.key});
-
+  BestSellerBookCard({super.key, required book}) {
+    _book = book;
+  }
+  late final Book _book;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -16,18 +20,7 @@ class BestSellerBookCard extends StatelessWidget {
         height: 140,
         child: Row(
           children: [
-            AspectRatio(
-              aspectRatio: 3.2 / 4,
-              child: Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(14),
-                  image: const DecorationImage(
-                    image: AssetImage(AssetsData.testImage),
-                    fit: BoxFit.fill,
-                  ),
-                ),
-              ),
-            ),
+            BookCard(imgUrl: _book.volumeInfo.imageLinks!.thumbnail as String),
             const SizedBox(
               width: 10,
             ),
@@ -38,16 +31,17 @@ class BestSellerBookCard extends StatelessWidget {
                   SizedBox(
                     width: MediaQuery.of(context).size.height * .25,
                     child: Text(
-                      "Harry Potter and the Goblet of Fire",
-                      style: Styles.textStyle20
-                          .copyWith(fontWeight: FontWeight.w700),
+                      _book.volumeInfo.title as String,
+                      overflow: TextOverflow.clip,
+                      style: Styles.textStyle14
+                          .copyWith(fontWeight: FontWeight.w500),
                     ),
                   ),
                   const SizedBox(
                     height: 4,
                   ),
-                  const Text(
-                    "JK Rowling",
+                  Text(
+                    _book.volumeInfo.authors?.first ?? "no authoer",
                     style: Styles.textStyle14,
                   ),
                   const SizedBox(
@@ -57,11 +51,12 @@ class BestSellerBookCard extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        "19,19 \$ ",
+                        "Free",
                         style: Styles.textStyle20
                             .copyWith(fontWeight: FontWeight.w700),
                       ),
                       Row(
+                        // Since The APi scammed me and it doesnt include average rating and rating count , i will make it static for now
                         children: const [
                           Icon(Icons.star, color: Colors.yellow),
                           SizedBox(

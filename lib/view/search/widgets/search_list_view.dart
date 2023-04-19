@@ -16,7 +16,7 @@ class SearchResultListView extends StatelessWidget {
         itemBuilder: (BuildContext context, int index) {
           return const Padding(
             padding: EdgeInsets.only(right: 5, left: 5, bottom: 15),
-            child: BestSellerBookCard(),
+            // child: BestSellerBookCard(book: Book,),
           );
         },
       ),

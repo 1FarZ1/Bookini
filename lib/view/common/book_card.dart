@@ -13,15 +13,13 @@ class BookCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(10.0),
+      padding: const EdgeInsets.only(left: 5.0, right: 10, bottom: 10),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(14),
         child: AspectRatio(
             aspectRatio: 2.8 / 4,
             child: CachedNetworkImage(
               imageUrl: imgUrl,
-              placeholder: (context, url) =>
-                  const Center(child: CircularProgressIndicator()),
               errorWidget: (context, url, error) => const Icon(Icons.error),
               fit: BoxFit.fill,
             )),

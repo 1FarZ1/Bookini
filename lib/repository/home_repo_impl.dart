@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 
@@ -8,7 +10,7 @@ import '../models/book/book.dart';
 import 'home_repo.dart';
 
 class HomeRepoImpl implements HomeRepo {
-  final ApiService  _apiService;
+  final ApiService _apiService;
 
   HomeRepoImpl(this._apiService);
 
@@ -32,7 +34,7 @@ class HomeRepoImpl implements HomeRepo {
   Future<Either<Failure, List<Book>>> fetchFeaturedBooks() async {
     try {
       Map<String, dynamic> data = await _apiService.get(
-          endPoint: 'volumes?Filtering=free-ebooks&q=computer science');
+          endPoint: 'volumes?Filtering=free-ebooks&q=programming');
       List<Book> books = creatingList(data['items']);
       return Right(books);
     } on Exception catch (e) {
