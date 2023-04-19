@@ -1,11 +1,15 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 
 import '../../common/book_card.dart';
 
 class CustomBookCard extends StatelessWidget {
   const CustomBookCard({
-    super.key,
-  });
+    Key? key,
+    required this.imgUrl,
+  }) : super(key: key);
+
+  final String imgUrl;
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +17,9 @@ class CustomBookCard extends StatelessWidget {
       color: Colors.red,
       width: MediaQuery.of(context).size.width * .3,
       height: MediaQuery.of(context).size.height * .2,
-      child: const BookCard(imgUrl: "",),
+      child:  BookCard(
+        imgUrl: imgUrl,
+      ),
     );
   }
 }

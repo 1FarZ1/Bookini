@@ -1,5 +1,7 @@
 import 'package:bookini/core/consts.dart';
+import 'package:bookini/view_model/detaills/similar_books_cubit/similar_books_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../common/custom_app_bar.dart';
@@ -41,7 +43,7 @@ class DetaillsBody extends StatelessWidget {
                     onPressed: () {},
                   ),
                 ),
-                const CustomBookCard(),
+                const CustomBookCard(imgUrl: "",),
                 const SizedBox(height: 32),
                 Text(
                   "The Book of the Dead",
@@ -63,15 +65,30 @@ class DetaillsBody extends StatelessWidget {
                 const SizedBox(height: 8),
                 SizedBox(
                   height: MediaQuery.of(context).size.height * .2,
-                  child: ListView.builder(
-                      itemCount: 4,
-                      scrollDirection: Axis.horizontal,
-                      itemBuilder: (_, __) {
-                        return const Padding(
-                          padding: EdgeInsets.all(6.0),
-                          child: CustomBookCard(),
+                  child: BlocBuilder<SimilarBooksCubit, SimilarBooksState>(
+                    builder: (context, state) {
+                      if (state is SimilarBooksSucess) {
+                        return ListView.builder(
+                            itemCount: 4,
+                            scrollDirection: Axis.horizontal,
+                            itemBuilder: (_, index) {
+                              return  Padding(
+                                padding: const EdgeInsets.all(6.0),
+                                child: CustomBookCard(imgUrl:state.books[index].volumeInfo.imageLinks?.thumbnail ?? ""),
+                              );
+                            });
+                      } else if (state is SimilarBooksFailure) {
+                        return Center(
+                          child:
+                              Text("Something Went Wrong${state.errorMessage}"),
                         );
-                      }),
+                      } else {
+                        return const Center(
+                          child: CircularProgressIndicator(),
+                        );
+                      }
+                    },
+                  ),
                 ),
                 const SizedBox(height: 32),
                 // create elevated button in flutter for me

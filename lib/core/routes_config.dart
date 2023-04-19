@@ -1,6 +1,10 @@
+import 'package:bookini/repository/home_repo_impl.dart';
 import 'package:bookini/view/detaills/detaills_view.dart';
 import 'package:bookini/view/search/search_view.dart';
+import 'package:bookini/view_model/detaills/similar_books_cubit/similar_books_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:get_it/get_it.dart';
 import 'package:go_router/go_router.dart';
 
 import '../view/home/home.dart';
@@ -24,7 +28,10 @@ abstract class AppRouter {
       GoRoute(
         path: '/detaills',
         builder: (BuildContext context, GoRouterState state) {
-          return const DetaillsView();
+          return BlocProvider<SimilarBooksCubit>(
+            create: (context) => SimilarBooksCubit(GetIt.I.get<HomeRepoImpl>()),
+            child: const DetaillsView(),
+          );
         },
       ),
       GoRoute(
