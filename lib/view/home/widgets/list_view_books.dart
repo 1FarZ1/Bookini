@@ -24,6 +24,7 @@ class ListViewBooks extends StatelessWidget {
                     book: state.books[index],
                   );
                 }
+                return const SizedBox.shrink();
               },
             );
           } else if (state is NewestBookFailure) {

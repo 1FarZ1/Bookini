@@ -1,8 +1,5 @@
-import 'package:bookini/models/book/image_links.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-
-import '../../core/consts.dart';
 
 class BookCard extends StatelessWidget {
   const BookCard({
