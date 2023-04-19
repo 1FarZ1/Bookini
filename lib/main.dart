@@ -14,7 +14,7 @@ void main() {
   setupDi();
   runApp(DevicePreview(
     tools: const [...DevicePreview.defaultTools],
-    enabled: true,
+    enabled: false,
     builder: (BuildContext _) => const MyApp(),
   ));
 }
