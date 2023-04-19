@@ -2,7 +2,7 @@
  A Application that provides books with detailled description on it , Built in With Flutter and Bloc Pattern , also used mvvm architecture
  
  
- ![image](https://user-images.githubusercontent.com/91225280/232976620-b38ca525-7ef9-456f-9437-4fba84afe55c.png)
+ ![image](https://cdn.discordapp.com/attachments/655813037483360276/1098120924580036619/bookini2.png)
 
 
 ### Features 
