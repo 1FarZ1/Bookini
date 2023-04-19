@@ -31,6 +31,7 @@ dependencies:
   dartz: ^0.10.1
   dio: ^5.1.1
   get_it: ^7.2.0
+  cached_network_image: ^3.2.3
 
 dev_dependencies:
   flutter_test:

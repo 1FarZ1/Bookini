@@ -21,10 +21,14 @@ class CustomListView extends StatelessWidget {
               itemCount: state.books.length,
               scrollDirection: Axis.horizontal,
               itemBuilder: (BuildContext context, int index) {
-                return BookCard(
-                    imgUrl:
-                        (state.books[index].volumeInfo.imageLinks?.thumbnail ??
-                            ""));
+                if (state.books[index].volumeInfo.imageLinks?.thumbnail !=
+                    null) {
+                  return BookCard(
+                      imgUrl: (state.books[index].volumeInfo.imageLinks!
+                          .thumbnail as String));
+                } else {
+                  return const SizedBox.shrink();
+                }
               },
             ),
           );
