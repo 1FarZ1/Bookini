@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:equatable/equatable.dart';
 
 import '../../../models/book/book.dart';
-import '../../../repository/home_repo_impl.dart';
+import '../../../repository/home/home_repo_impl.dart';
 
 part 'featured_books_state.dart';
 

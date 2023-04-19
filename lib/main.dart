@@ -1,5 +1,5 @@
 import 'package:bookini/core/consts.dart';
-import 'package:bookini/repository/home_repo_impl.dart';
+import 'package:bookini/repository/home/home_repo_impl.dart';
 import 'package:bookini/view_model/home/featured_books_cubit/featured_books_cubit.dart';
 import 'package:bookini/view_model/home/newest_books_cubit/newest_book_cubit.dart';
 import 'package:device_preview/device_preview.dart';

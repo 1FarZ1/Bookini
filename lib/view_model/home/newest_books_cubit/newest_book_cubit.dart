@@ -2,7 +2,7 @@ import 'dart:developer';
 
 import 'package:bookini/core/errors/failure.dart';
 import 'package:bookini/models/book/book.dart';
-import 'package:bookini/repository/home_repo_impl.dart';
+import 'package:bookini/repository/home/home_repo_impl.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:equatable/equatable.dart';

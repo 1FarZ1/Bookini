@@ -6,11 +6,11 @@ import 'package:go_router/go_router.dart';
 import '../../models/book/book.dart';
 
 class BookCard extends StatelessWidget {
-   BookCard({
+  BookCard({
     Key? key,
     required Book book,
-  }) : super(key: key){
-_book = book;
+  }) : super(key: key) {
+    _book = book;
   }
   late final Book _book;
   @override
@@ -20,14 +20,14 @@ _book = book;
         GoRouter.of(context).push(
           "/detaills",
           extra: _book,
-          );
+        );
       },
       child: ClipRRect(
         borderRadius: BorderRadius.circular(14),
         child: AspectRatio(
             aspectRatio: 2.8 / 4,
             child: CachedNetworkImage(
-              imageUrl: _book.volumeInfo.imageLinks!.thumbnail ?? "",
+              imageUrl: _book.volumeInfo.imageLinks?.thumbnail ?? "",
               errorWidget: (context, url, error) => const Icon(Icons.error),
               fit: BoxFit.fill,
             )),

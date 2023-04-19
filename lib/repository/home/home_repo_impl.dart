@@ -2,10 +2,10 @@
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 
-import '../core/api_service.dart';
-import '../core/errors/failure.dart';
-import '../core/utils/list_create.dart';
-import '../models/book/book.dart';
+import '../../core/api_service.dart';
+import '../../core/errors/failure.dart';
+import '../../core/utils/list_create.dart';
+import '../../models/book/book.dart';
 import 'home_repo.dart';
 
 class HomeRepoImpl implements HomeRepo {

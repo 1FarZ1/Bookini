@@ -1,7 +1,10 @@
-import 'package:bookini/repository/home_repo_impl.dart';
-import 'package:bookini/view/detaills/detaills_view.dart';
-import 'package:bookini/view/search/search_view.dart';
-import 'package:bookini/view_model/detaills/similar_books_cubit/similar_books_cubit.dart';
+import 'package:bookini/view_model/search/search_books/search_books_cubit.dart';
+
+import '../repository/home/home_repo_impl.dart';
+import '../repository/search/search_repo_impl.dart';
+import '../view/detaills/detaills_view.dart';
+import '../view/search/search_view.dart';
+import '../view_model/detaills/similar_books_cubit/similar_books_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
@@ -31,14 +34,17 @@ abstract class AppRouter {
         builder: (BuildContext context, GoRouterState state) {
           return BlocProvider<SimilarBooksCubit>(
             create: (context) => SimilarBooksCubit(GetIt.I.get<HomeRepoImpl>()),
-            child:  DetaillsView(book:state.extra as Book ),
+            child: DetaillsView(book: state.extra as Book),
           );
         },
       ),
       GoRoute(
         path: '/search',
         builder: (BuildContext context, GoRouterState state) {
-          return const SearchView();
+          return BlocProvider<SearchBooksCubit>(
+            create: (context) => SearchBooksCubit(GetIt.I.get<SearchRepoImpl>()),
+            child: const SearchView(),
+          );
         },
       ),
     ],
