@@ -1,7 +1,5 @@
 import 'package:bookini/core/consts.dart';
-import 'package:bookini/view_model/detaills/similar_books_cubit/similar_books_cubit.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../models/book/book.dart';
@@ -68,7 +66,9 @@ class DetaillsBody extends StatelessWidget {
                 //TODO: since idk why api doesnt give me rating , this will remain static
                 const RatingBox(),
                 const SizedBox(height: 32),
-                const ActionButton(),
+                 ActionButton(
+                  url: book.volumeInfo.previewLink,
+                ),
                 const Expanded(child: SizedBox(height: 32)),
                 const CustomTitle(),
                 const SizedBox(height: 8),

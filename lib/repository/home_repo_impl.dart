@@ -48,7 +48,7 @@ class HomeRepoImpl implements HomeRepo {
   Future<Either<Failure, List<Book>>> fetchSimiliarBooks(String categorie) async {
     try {
       Map<String, dynamic> data = await _apiService.get(
-          endPoint: 'volumes?Filtering=free-ebooks&q=programming');
+          endPoint: 'volumes?Filtering=free-ebooks&sorting=relevance&q=programming');
       List<Book> books = creatingList(data['items']);
       return Right(books);
     } on Exception catch (e) {

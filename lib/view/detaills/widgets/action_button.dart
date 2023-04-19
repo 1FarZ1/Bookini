@@ -1,12 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../../core/consts.dart';
 
-class ActionButton extends StatelessWidget {
-  const ActionButton({
-    super.key,
-  });
 
+@immutable
+class ActionButton extends StatelessWidget {
+  ActionButton({
+    super.key,
+    url,
+  }) {
+    _url = Uri.parse(url);
+  }
+
+  late Uri _url;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -34,7 +41,9 @@ class ActionButton extends StatelessWidget {
           ),
           Expanded(
             child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  launchUrl(_url);
+                },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.red,
                   shape: const RoundedRectangleBorder(
