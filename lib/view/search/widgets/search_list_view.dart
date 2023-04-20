@@ -20,6 +20,7 @@ class SearchResultListView extends StatelessWidget {
               shrinkWrap: true,
               itemCount: state.books.length,
               padding: EdgeInsets.zero,
+              // ignore: body_might_complete_normally_nullable
               itemBuilder: (BuildContext context, int index) {
                 log(state.books[index].volumeInfo.imageLinks?.toJson() ??
                     " no photo sorry");
@@ -30,7 +31,7 @@ class SearchResultListView extends StatelessWidget {
                     child: BestSellerBookCard(book: state.books[index]),
                   );
                 } catch (e) {
-                  print("error was found fares");
+                  // print("error was found fares");
                 }
               },
             );

@@ -4,6 +4,7 @@ import 'package:url_launcher/url_launcher.dart';
 import '../../../core/consts.dart';
 
 
+// ignore: must_be_immutable
 @immutable
 class ActionButton extends StatelessWidget {
   ActionButton({
