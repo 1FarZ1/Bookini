@@ -17,8 +17,7 @@ class DetaillsBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    //TODO: Seperate The Ui into Sections
-    return CustomScrollView(
+        return CustomScrollView(
       slivers: [
         SliverFillRemaining(
           hasScrollBody: false,
@@ -66,7 +65,7 @@ class DetaillsBody extends StatelessWidget {
                 //TODO: since idk why api doesnt give me rating , this will remain static
                 const RatingBox(),
                 const SizedBox(height: 32),
-                 ActionButton(
+                ActionButton(
                   url: book.volumeInfo.previewLink,
                 ),
                 const Expanded(child: SizedBox(height: 32)),
